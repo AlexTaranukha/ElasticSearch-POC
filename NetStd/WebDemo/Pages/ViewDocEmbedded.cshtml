@@ -1,0 +1,54 @@
+﻿@page
+@model WebDemo.Pages.ViewDocModel
+@{
+    Layout = null;
+}
+
+<style>
+    .DocHeading {
+        border: 1px solid;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        background-color: #F5F5F5;
+        border-color: #ddd;
+        margin: 0 5px 5px 5px;
+        padding: 18px 14px 14px 14px;
+    }
+
+    h4.DocName {
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 0;
+        margin: 0;
+        margin-left: 24px;
+        padding-bottom: 14px;
+        color: #333;
+    }
+
+    h6.DocInfo {
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0;
+        margin: 0;
+        margin-left: 24px;
+        color: #333;
+    }
+</style>
+
+@if (Model.WasError) {
+    <div class="DocHeading">
+        <h4 class="DocName"><strong>Error:</strong>  @Model.ErrorMessage</h4>
+    </div>
+    }
+else {
+    <div class="DocHeading">
+        <h4 class="DocName">@Model.Item.ShortName @Model.Item.HitCount hits</h4>
+        <h6 class="DocInfo"> @Model.Item.Location</h6>
+        <h6 class="DocInfo"> @Model.Item.Modified.ToShortDateString() @(Model.Item.Size / 1024 + "k") </h6>
+    </div>
+    <link rel="stylesheet" href="~/css/Scrollbar.css" asp-append-version="true" />
+    @Html.Raw(Model.HighlightedDocument)
+    }

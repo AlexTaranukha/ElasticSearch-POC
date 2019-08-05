@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WpfDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FolderToIndex" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\docs</Value>
+    </Setting>
+    <Setting Name="IncludeSubfolders" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SearchRequest" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sample</Value>
+    </Setting>
+    <Setting Name="Stemming" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

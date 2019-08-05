@@ -1,0 +1,91 @@
+﻿<!-- Partial view to display search results for a search form. -->
+
+@model WebDemo.Pages.SearchModel
+
+@using dtSearch.Engine;
+
+@if (Model.WasError) {
+    <div class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4>@Model.SearchRequest</h4> 
+        <p>@Model.ErrorMessage</p>
+    </div>
+    }
+
+else if (Model.HaveItemsToDisplay()) {
+
+    <!-- Display search results as a table with links to open each file with hits highlighted -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>@Model.SearchResults.Request</h4>
+        </div>
+        <div class="panel-body">
+            @Model.SearchResults.TotalFileCount.ToString("#,#") files with @Model.SearchResults.TotalHitCount.ToString("#,#") hits
+        </div>
+
+        <table class="table table-hover">
+            <thead class="blue-grey lighten-4">
+                <tr>
+                    <th>Hits</th>
+                    <th>Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- If the "No Frames" checkbox is checked, then links will open in a new window using the "ViewDoc" page, which
+                    includes the navigation bar header in the page that displays the document.
+
+                    Otherwise, the "ViewDocEmbedded" page is used, which includes only the HTML containing the highlighted document.
+                    This HTML is directed to an IFRAME named "doc" that is added to the page below.  -->
+                @{
+                    for (int i = Model.Pager.GetFirstItemToDisplay(); i <= Model.Pager.GetLastItemToDisplay(); ++i) {
+                        string highlightUrl;
+                        SearchResultsItem item = Model.GetSearchResultsItem(i, out highlightUrl);
+                        <tr>
+                            <td class="HitsColumn">@item.HitCount</td>
+
+                            <td>
+                                <a href="@highlightUrl" target="doc">@item.ShortName</a>
+                                <br />@item.Location
+                                <br />@item.Modified.ToShortDateString() @((item.Size + 512) / 1024) k
+                                @if (!string.IsNullOrWhiteSpace(item.Synopsis)) {
+                                    <br /> @Html.Raw(item.Synopsis);
+                                    }
+
+                            </td>
+                        </tr>
+
+                        }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Use a Bootstrap pagination control to handle navigation between pages of search results.
+
+        Each page is implemented using a URL to execute a new search that will retrieve the items
+        needed for that page.  Model.Pager (a SearchPager object) builds these URLs. -->
+    <nav>
+        <ul class="pagination pg-blue">
+            <li class="page-item @(Model.Pager.HavePrevPageNum ? " " : " disabled") ">
+                <a class="page-link" href="@(Model.Pager.PrevPageUrl)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+
+            @foreach (var item in Model.Pager.PagerItems) {
+                <li class="page-item @(item.isCurrent ? " active" : "" )">
+                    <a class="page-link" href="@(item.Url)">@(item.pageNum.ToString())</a>
+                </li>
+                }
+
+            <li class="page-item @(Model.Pager.HaveNextPageNum ? " " : " disabled") ">
+                <a class="page-link" href="@(Model.Pager.NextPageUrl)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    }

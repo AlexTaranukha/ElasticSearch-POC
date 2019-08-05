@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemo"
+        mc:Ignorable="d"
+        Title="dtSearch .NET Core Api - WPF Demo" Height="268.706" Width="525">
+    <Grid>
+        <Button x:Name="BuildIndexButton" Click="BuildIndexButton_Click" Content="Build index" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="156"/>
+        <Button x:Name="Search_Button" Click="Search_Button_Click"  Content="Search" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.243,-0.226"/>
+        <TextBlock x:Name="VersionInfoLabel" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Width="315" Height="45"/>
+        <CheckBox x:Name="DebugLoggingCheckBox" Content="Debug logging" HorizontalAlignment="Left" Margin="18,182,0,0" VerticalAlignment="Top" Width="148" Checked="DebugLoggingCheckBox_Changed" Unchecked="DebugLoggingCheckBox_Changed"/>
+        <Label Content="Index path" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="IndexPathEdit" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="20,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="449"/>
+        <TextBox x:Name="DebugLogNameEdit" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="20,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="449"/>
+        <Button x:Name="VerifyButton" Content="Verify Index" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="156" Click="VerifyButton_Click"/>
+
+    </Grid>
+</Window>

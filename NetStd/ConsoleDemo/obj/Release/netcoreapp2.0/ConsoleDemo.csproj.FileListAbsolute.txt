@@ -1,0 +1,14 @@
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/libdtSearchEngine.dylib
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/Program.cs
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/ConsoleDemo.deps.json
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/ConsoleDemo.runtimeconfig.json
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/ConsoleDemo.runtimeconfig.dev.json
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/ConsoleDemo.dll
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/ConsoleDemo.pdb
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/bin/Release/netcoreapp2.0/dtSearchNetStdApi.dll
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.csproj.CoreCompileInputs.cache
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.AssemblyInfoInputs.cache
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.AssemblyInfo.cs
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.csproj.CopyComplete
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.dll
+/Users/alex.taranukha/Projects/NetStd/ConsoleDemo/obj/Release/netcoreapp2.0/ConsoleDemo.pdb

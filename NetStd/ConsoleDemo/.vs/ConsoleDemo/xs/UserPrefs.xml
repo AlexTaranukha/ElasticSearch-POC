@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{148B6F08-D03F-4560-94A4-92A728B4AFB9}|Default">
+  <MonoDevelop.Ide.ItemProperties.ConsoleDemo PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp.cs">
+    <Files>
+      <File FileName="ConsoleApp.cs" Line="39" Column="34" />
+      <File FileName="../Common/SampleApp.cs" />
+      <File FileName="../Common/SampleIndexJob.cs" />
+      <File FileName="Program.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ConsoleDemo" expanded="True">
+            <Node name="ConsoleDemo" expanded="True">
+              <Node name="ConsoleApp.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>fileName</Value>
+          <Value>file</Value>
+          <Value>job</Value>
+          <Value>file.GetContentLength()</Value>
+          <Value>job.DataSourceToIndex.DocStream</Value>
+          <Value>e</Value>
+          <Value>stream</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../../../ElasticSearchPOC/Program.cs" line="20" offsetX="-1" offsetY="-1" expression="i" liveUpdate="False" />
+    <Watch file="../../../../../ElasticSearchPOC/Program.cs" line="20" offsetX="-1" offsetY="-1" expression="i" liveUpdate="False" />
+    <Watch file="../../../../../ElasticSearchPOC/Program.cs" line="84" offsetX="-1" offsetY="-1" expression="file" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

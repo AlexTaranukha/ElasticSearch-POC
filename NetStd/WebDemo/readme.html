@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>dtSearch .NET Standard Console Sample</title>
+        <style>
+        	html {
+			    background-color: #e6e9e9;
+    			background-image: -webkit-linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);
+    			background-image: linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);				}
+
+			body {
+			    margin: 0 auto;
+			    padding: 2em 2em 4em;
+			    max-width: 800px;
+			    font-family: "Segoe Ui", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			    font-size: 16px;
+			    line-height: 1.5em;
+			    background-color: #ffffff;
+			}
+
+			h2 {
+			    margin-top: 1.3em;
+			    color: #222;
+			    font-weight: 600;
+			    line-height: 1.3em;
+			    }
+
+	
+
+        </style>
+    </head>
+    <body>
+        
+        <h1>dtSearch ASP.NET Core Sample</h1>
+        <h3>Overview</h3>
+        <p>
+            This sample demonstrates how to use the dtSearch Engine's .NET Standard API in an 
+            ASP.NET Core application.
+        </p>
+        
+        <p> Before running the sample, you will need to create an index of the documents to be searched.
+        	The index should be created with <a href="http://support.dtsearch.com/webhelp/dtSearchCppApi/frames.html?frmname=topic&frmfile=Caching_documents.html">
+        		caching of text</a> enabled. 
+		</p>
+        
+        <p>        	
+            To run this sample:<br>            
+            <ol>
+                <li>Open the solution WebDemo.sln in Visual Studio 2017 version 15.5 or later.</li>
+                <li>Select the "WebDemo" project in the solution.</li>
+                <li>Click Project &gt; Manage NuGet Packages... </li>
+                <li>Restore or update any packages if needed.</li>
+                <li>Edit the file appsettings.json and change the IndexTable to reference your index or indexes.  (The IndexId for
+                	each index is just an identifier to use on search forms to keep the index path invisible to search users.
+                	On search forms, you can use this identifier to specify the index to search.)</li>
+                <li>Build and run the application</li>
+            </ol>          
+			To run this sample from the Command Prompt (Windows) or from a Terminal window (Linux/macOS):<br>            
+            <ol>
+                <li>Navigate to the project folder, in the dtSearch examples/NetCore/WebDemo folder.</li>
+                <li>Execute these commands:<br/><code>dotnet build<br/>dotnet run</code></li>
+                <li>If the dotnet command is not found, download and install .NET <a href="https://www.microsoft.com/net/learn/get-started">here</a>.
+            </ol>       
+        </p>
+        
+        <h3>Additional information</h3>
+        <p>
+            <ul>
+                <li><a href="https://support.dtsearch.com/webhelp/dtSearchNetStdApi">dtSearch Engine .NET Standard API</a></li>            
+                <li><a href="https://support.dtsearch.com/faq/dts0241.htm">Information about the dtSearch .NET Standard API</a>
+            </ul>
+
+        </p>        
+        
+        
+    </body>
+</html>

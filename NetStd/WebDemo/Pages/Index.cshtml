@@ -1,0 +1,217 @@
+﻿@page
+@model WebDemo.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+@using dtSearch.Engine;
+
+
+<div class="container" id="SearchContainer">
+
+    <div class="row">
+
+        <div class="col-xs-5" id="SearchScrollArea">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Search</h4>
+                </div>
+                <div class="panel-body">
+                    <!-- This div is used by for_WordList.js for the scrolling list of words -->
+                    @if (Model.Settings.ShowWordList) {
+                        <!-- This is a reference URL for the WordList JavaScript to use to detect URL rewriting. -->
+                        <a id="RootUrl" href="/"></a>
+                        if (Model.HaveItemsToDisplay()) {
+                            <!-- Show word list initially closed after a search -->
+                            <button id="WordListButton" class="btn btn-default" type="button" data-toggle="collapse"
+                                    data-target="#WordList" aria-expanded="true">
+                                <span data-toggle="tooltip" title="Show or hide the word list" class="glyphicon glyphicon-collapse-up"></span>
+                            </button>
+                            <div class="collapse" id="WordList">
+                            </div>
+
+
+                            }
+                        else {
+                            <!-- Show word list initially open -->
+                            <button id="WordListButton" class="btn btn-default" type="button" data-toggle="collapse"
+                                    data-target="#WordList" aria-expanded="true">
+                                <span data-toggle="tooltip" title="Show or hide the word list" class="glyphicon glyphicon-collapse-down"></span>
+                            </button>
+                            <div class="collapse in" id="WordList">
+                            </div>
+                            }
+                        }
+
+
+                    <div class="form-group">
+                        <form role="search" method="post" class="form-horizontal" id="SearchForm">
+                            <label for="SearchRequest" class="sr-only">Search request</label>
+                            <div class="input-group">
+                                <input asp-for="SearchRequest" id="SearchRequest"
+                                       class="typeahead form-control" autocomplete="off" type="text" placeholder="Search request"
+                                       value="@Model.SearchRequest" />
+                                <select asp-for="SearchType" class="form-control selectpicker" id="SearchType">
+                                    <option value="@WebDemo.Pages.SearchType.AllWords">All words</option>
+                                    <option value="@WebDemo.Pages.SearchType.AnyWords">Any words</option>
+                                    <option value="@WebDemo.Pages.SearchType.Boolean">Boolean search</option>
+                                </select>
+                                <div class="input-group-btn" style="vertical-align: top;">
+                                    <button class="btn btn-default" type="submit" value="Search" asp-page-handler="Search" data-toggle="tooltip" title="Search">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- If there are multiple indexes listed in the appsettings.json file's IndexTable, make a
+                            checkbox for each index.  Otherwise, just add a single hidden control to identify the index.
+
+                            Each index in appsettings.json has an Id and a path.  The Id is used on the search form to identify
+                            the index, and the IndexTable in the AppSettings class is used internally to map this Id to a path.
+                            -->
+                            @if (Model.Settings.IndexTable.Count > 1) {
+                                @foreach (var index in Model.Settings.IndexTable) {
+                                    string chk = (Model.IsSelected(index.IndexId) ? "checked" : "");
+                                    <div class="checkbox checkbox-inline">
+                                        <label class="control-label" for="IxId">
+                                            <input name="IxId" type="checkbox" value="@index.IndexId" @chk />
+                                            @index.Name
+                                        </label>
+                                    </div>
+
+                                    }
+
+                                }
+                            else {
+                                <input name="IxId" type="hidden" value="@Model.Settings.IndexTable[0].IndexId" />
+                                }
+
+                            <div class="collapse" id="AdvancedOptions">
+                                <div class="checkbox">
+                                    <label class="control-label" for="Stemming">
+                                        <input asp-for="Stemming" id="Stemming"
+                                               type="checkbox" checked="@Model.Stemming" />
+                                        Stemming
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="control-label" for="PhonicSearching">
+                                        <input asp-for="PhonicSearching" id="PhonicSearching"
+                                               type="checkbox" checked="@Model.PhonicSearching" />
+                                        Phonic searching
+                                    </label>
+                                </div>
+
+
+                                <div class="checkbox">
+                                    <label class="control-label" for="Fuzzy">
+                                        <input asp-for="Fuzzy" id="Fuzzy"
+                                               type="checkbox" checked="@Model.Fuzzy" />
+                                        Fuzzy searching
+                                    </label>
+                                </div>
+
+                                <div id="FuzzinessDiv">
+                                    <label class="control-label" id="FuzzinessLabel" for="Fuzziness">
+                                        Fuzziness
+                                        <select asp-for="Fuzziness" class="form-control" id="Fuzziness">
+                                            <option value="0"> 0 </option>
+                                            <option value="1"> 1 </option>
+                                            <option value="2"> 2 </option>
+                                            <option value="3"> 3 </option>
+                                            <option value="4"> 4 </option>
+                                            <option value="5"> 5 </option>
+                                            <option value="6"> 6 </option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="control-label" for="EnableDateSearch">
+                                        <input asp-for="EnableDateSearch" id="EnableDateSearch"
+                                               type="checkbox" checked="@Model.EnableDateSearch" />
+                                        Limit by date
+                                    </label>
+                                </div>
+
+                                <div id="FileDateDiv">
+                                    <br><b>File date</b><br>
+                                    <div class="input-group">
+                                        <input asp-for="StartDate" type="date" placeholder="YYYY/MM/DD" class="form-control" value="@Model.StartDate">
+                                        <input asp-for="EndDate" type="date" placeholder="YYYY/MM/DD" class="form-control" value="@Model.EndDate">
+                                    </div>
+
+                                </div>
+                                <div class="checkbox">
+                                    <label class="control-label" for="NoFrames">
+                                        <input asp-for="NoFrames" id="NoFrames"
+                                               type="checkbox" checked="@Model.NoFrames" />
+                                        Open documents in new tab
+                                    </label>
+                                </div>
+                            </div>  <!-- End of AdvancedOptions -->
+                        </form>
+                        <button id="AdvancedButton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#AdvancedOptions"
+                                aria-expanded="false" are-controls="AdvancedOptions">
+                            <span data-toggle="tooltip" title="Show or hide advanced options" class="glyphicon glyphicon-collapse-down"></span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            @Html.Partial("SearchResults", Model)
+
+        </div>
+        @if (!Model.NoFrames) {
+            <div class="col-xs-7">
+                <iframe id="doc" name="doc" align="right" style="display:block;width:100%;height:90vh;"></iframe>
+            </div>
+            }
+    </div>
+</div>
+
+
+
+
+@section scripts {
+    <!-- The search form can optionally include either a scrolling list of index words like the one that appears in dtSearch Desktop
+        or a drop-down list based on the Twitter Typeahead control.
+
+        To include the scrolling list of words, include for_WordList.js.
+
+        To include the typeahead control, remove the reference to for_WordList.js and remove the comment
+        tags around the Typeahead scripts below.
+    -->
+    <script src="~/js/for_SearchForm.js" asp-append-version="true"></script>
+    <script src="~/js/for_WordList.js" asp-append-version="true"></script>
+    <!-- Typehead from this project: https://github.com/corejavascript/typeahead.js -->
+    <!-- <script src="~/js/for_Typeahead.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.js"></script> -->
+}
+
+
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/for_typeahead.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/for_typeahead.css" asp-append-version="true" />
+    </environment>
+}
+
+@section Toolbar {
+    @if (Model.HaveItemsToDisplay()) {
+        <!-- button bar to implement hit navigation -->
+        <div class="btn-group navbar-right" style="margin-right: 50px;">
+            <button class="btn btn-default searchbar" type="button" data-toggle="tooltip" title="Prev Hit" onClick="javaScript: doc.prevHit();">
+                <img src="~/images/button-filledcircle-find-arrow-left.svg" class="searchimg">
+            </button>
+            <button class="btn btn-default searchbar" type="button" data-toggle="tooltip" title="Next Hit" onClick="javaScript: doc.nextHit();">
+                <img src="~/images/button-filledcircle-find-arrow-right.svg" class="searchimg">
+            </button>
+
+        </div>
+        }
+}

@@ -1,0 +1,60 @@
+﻿@page
+@model WebDemo.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <tr>
+        <td align="right">
+            <strong>dtSearch Engine version</strong>
+        </td>
+        <td> @Model.VersionMessage </td>
+    </tr>
+    <tr>
+        <td align="right"><strong>Environment</strong></td>
+        <td> @Model.EnvironmentMessage</td>
+    </tr>
+    <tr>
+        <td align="right"><strong>BaseDirectory</strong></td>
+        <td> @AppDomain.CurrentDomain.BaseDirectory </td>
+    </tr>
+    <tr>
+        <td align="right"><strong>ContentRootPath</strong></td>
+        <td> @Model.ContentRootPath </td>
+    </tr>
+    <tr>
+        <td align="right"><strong>WebRootPath</strong></td>
+        <td> @Model.WebRootPath </td>
+    </tr>
+    <tr>
+        <td align="right"><strong>IndexCache status</strong></td>
+        <td> @Model.IndexCacheStatus </td>
+    </tr>
+</table>
+
+<div class="col-xs-4">
+    <h4>Open-source notices</h4>
+    <table class="table">
+        <tr>
+            <td><a href="https://getbootstrap.com/">Bootstrap</a></td>
+            <td><a href="~/licenses/BootstrapLicense.html">MIT License</a> </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://jquery.com/">jQuery </a>
+            </td>
+            <td><a href="~/licenses/jQueryLicense.html">MIT License </a></td>
+        </tr>
+        <tr>
+            <td><a href="https://serilog.net/">Serilog</a> .NET logging library </td>
+            <td> <a href="~/licenses/SerilogLicense.html">Apache 2.0 License</a> </td>
+        </tr>
+        <tr>
+
+            <td><a href="https://github.com/corejavascript/typeahead.js">Twitter Typeahead</a> </td>
+            <td><a href="~/licenses/TwitterTypeaheadLicense.html">MIT License</a></td>
+        </tr>
+    </table>
+</div>

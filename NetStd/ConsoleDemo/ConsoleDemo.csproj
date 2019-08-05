@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Common\SampleApp.cs" Link="SampleApp.cs" />
+    <Compile Include="..\Common\SampleFileConverter.cs" Link="SampleFileConverter.cs" />
+    <Compile Include="..\Common\SampleIndexJob.cs" Link="SampleIndexJob.cs" />
+    <Compile Include="..\Common\VersionInfo.cs" Link="VersionInfo.cs" />
+  </ItemGroup>
+
+  <!-- This conditionally includes the correct dtSearchEngine native library depending on the build platform -->
+
+  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+    <Content Include="..\..\..\lib\engine\win\x64\dtSearchEngine.dll" Link="dtSearchEngine.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">
+    <Content Include="..\..\..\lib\engine\linux\x64\libdtSearchEngine.so" Link="libdtSearchEngine.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">
+    <Content Include="..\..\..\lib\engine\macos\x64\libdtSearchEngine.dylib" Link="libdtSearchEngine.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="dtSearchNetStdApi">
+      <HintPath>..\..\..\lib\engine\NetStd\dtSearchNetStdApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Program.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+</Project>

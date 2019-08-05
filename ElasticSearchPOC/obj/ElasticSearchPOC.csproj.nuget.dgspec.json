@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj": {}
+  },
+  "projects": {
+    "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj",
+        "projectName": "ElasticSearchPOC",
+        "projectPath": "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj",
+        "packagesPath": "/Users/alex.taranukha/.nuget/packages/",
+        "outputPath": "/Users/alex.taranukha/Projects/ElasticSearchPOC/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/alex.taranukha/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "SharpCifs.Std": {
+              "target": "Package",
+              "version": "[0.2.13, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

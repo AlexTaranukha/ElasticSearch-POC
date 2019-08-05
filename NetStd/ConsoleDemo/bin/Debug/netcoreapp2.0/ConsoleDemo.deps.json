@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "ConsoleDemo/1.0.0": {
+        "dependencies": {
+          "dtSearchNetStdApi": "7.94.8615.0"
+        },
+        "runtime": {
+          "ConsoleDemo.dll": {}
+        }
+      },
+      "dtSearchNetStdApi/7.94.8615.0": {
+        "runtime": {
+          "dtSearchNetStdApi.dll": {
+            "assemblyVersion": "7.94.8615.0",
+            "fileVersion": "7.94.8615.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleDemo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dtSearchNetStdApi/7.94.8615.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

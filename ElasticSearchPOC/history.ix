@@ -1,0 +1,30 @@
+* * * 07/30/2019 14:27:37 dtSearch 7.94 (Build 8619 Mac OS x64)
+<dtsIndexJob>
+    Actions:                  "Create(relativePaths ) Add "
+    IndexPath:                "/Users/alex.taranukha/Projects/ElasticSearchPOC/"
+    IndexName:                ""
+    ToRemoveList:             ""
+    DataSourceToIndex:        0(0x0)
+    MaxMemToUseMB:            0(0x0)
+    AutoCommitIntervalMB:     0(0x0)
+    StoredFields:             [empty]
+    IndexingFlags:            805306384 (0x30000010) dtsIndexCreateRelativePaths dtsIndexCreateVersion7 dtsIndexCreateVersion7a 
+<toAdd>
+    IncludeFilters:           [empty]
+    ExcludeFilters:           [empty]
+    DirList:                  "/Users/alex.taranukha/Projects/ElasticSearchPOC/"
+    Dir:                      ""
+    DirListName:              ""
+    FileListName:             ""
+</toAdd>
+    Error Handler:            140732672728000(0x7ffee0f75bc0)
+    Report callback:          4590927288(0x111a3fdb8)
+    Job Options:              0(0x0)
+    TimeoutSeconds:           0(0x0)
+</dtsIndexJob>
+Index update settings
+   Memory avail:         8,192 mb
+   Physical memory:      16,384 mb
+   Disk avail:           396 gb
+   Params:                s=819 d=8342 h=15
+

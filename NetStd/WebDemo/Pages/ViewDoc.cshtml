@@ -1,0 +1,38 @@
+﻿@page
+@model WebDemo.Pages.ViewDocModel
+@{
+    ViewData["Title"] = "ViewDoc";
+}
+
+@if (Model.WasError) {
+    <div class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error</strong>  @Model.ErrorMessage  
+    </div>
+    }
+else {
+<div class="panel panel-default" style="margin-top: 10px;">
+    <div class="panel-heading">
+        <h3>@Model.Item.ShortName @Model.Item.HitCount hits</h3>
+        <h6> @Model.Item.Location</h6>
+        <h6> @Model.Item.Modified.ToShortDateString() @(Model.Item.Size / 1024 + "k") </h6>
+    </div>
+    <div class="panel-body">
+
+        @Html.Raw(Model.HighlightedDocument);
+    </div>
+</div>
+    }
+
+@section Toolbar {
+    <!-- button bar to implement hit navigation -->
+    <div class="btn-group navbar-right" style="margin-right: 50px;">
+        <button class="btn btn-default searchbar" type="button" data-toggle="tooltip" title="Prev Hit" onClick="javaScript: prevHit();">
+            <img src="~/images/button-filledcircle-find-arrow-left.svg" class="searchimg">
+        </button>
+        <button class="btn btn-default searchbar" type="button" data-toggle="tooltip" title="Next Hit" onClick="javaScript: nextHit();">
+            <img src="~/images/button-filledcircle-find-arrow-right.svg" class="searchimg">
+        </button>
+
+    </div>
+}

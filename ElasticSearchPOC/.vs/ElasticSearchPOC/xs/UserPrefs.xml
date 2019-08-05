@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{02FFDFFD-FEED-43D0-B10C-EC151320763E}|Default">
+  <MonoDevelop.Ide.ItemProperties.ElasticSearchPOC PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ElasticSearchPOC" expanded="True">
+            <Node name="ElasticSearchPOC" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="AssemblyDependencies" expanded="True" />
+              </Node>
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../Program.cs" line="20" offsetX="-1" offsetY="-1" expression="i" liveUpdate="False" />
+    <Watch file="../../../Program.cs" line="20" offsetX="-1" offsetY="-1" expression="i" liveUpdate="False" />
+    <Watch file="../../../Program.cs" line="84" offsetX="-1" offsetY="-1" expression="file" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/alex.taranukha/Projects/ElasticSearchPOC/Program.cs" relfile="Program.cs" line="129" column="1" />
+      <Breakpoint file="/Users/alex.taranukha/Projects/ElasticSearchPOC/Program.cs" relfile="Program.cs" line="38" column="1" />
+      <Breakpoint file="/Users/alex.taranukha/Projects/ElasticSearchPOC/Program.cs" relfile="Program.cs" line="103" column="1" />
+      <Breakpoint file="/Users/alex.taranukha/Projects/ElasticSearchPOC/Program.cs" relfile="Program.cs" line="203" column="1" />
+      <Breakpoint file="/Users/alex.taranukha/Projects/ElasticSearchPOC/Program.cs" relfile="Program.cs" line="179" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
