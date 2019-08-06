@@ -15,7 +15,7 @@ namespace ElasticSearchPOC
         static async Task Main(string[] args)
         {
             int numberOfIterations = 1;
-            int numberOfThreads = 2;
+            int numberOfThreads = 4;
             int numberOfDocs = 20;
             List<Task> tf = new List<Task>();
             List<Task> td = new List<Task>();
@@ -52,20 +52,8 @@ namespace ElasticSearchPOC
                         //await Task.WhenAll(tf.ToArray());
                     }
 
-                    using (dtSearch.Engine.IndexJob job = new IndexJob())
-                    {
-                        job.IndexPath = "/Users/alex.taranukha/Projects/ElasticSearchPOC/FileIndex/";
-                        job.ActionCreate = true;
-                        job.ActionAdd = true;
-                        job.ActionMerge = true;
-                        job.DataSourceToIndex = ds;
-
-                        Console.WriteLine("BuildIndex Start - " + DateTime.Now.ToString());
-                        var returnValue = job.Execute();
-                        if (!returnValue) Console.WriteLine("JOB ERROR - " + job.Errors.ToString());
-                        Console.WriteLine("BuildIndex End - " + DateTime.Now.ToString());
-                    }
-
+                    BuildIndex("/Users/alex.taranukha/Projects/ElasticSearchPOC/FileIndex/", ds);
+              
                 }
                 DateTime endTime = DateTime.Now;
                 Console.WriteLine("ECE POC - Reading from file into a memory stream - End: " + endTime.ToString());
@@ -94,19 +82,7 @@ namespace ElasticSearchPOC
                         //await Task.WhenAll(td.ToArray());
                     }
 
-                    using (dtSearch.Engine.IndexJob job = new IndexJob())
-                    {
-                        job.IndexPath = "/Users/alex.taranukha/Projects/ElasticSearchPOC/ECEIndex/";
-                        job.ActionCreate = true;
-                        job.ActionAdd = true;
-                        job.ActionMerge = true;
-                        job.DataSourceToIndex = ds;
-
-                        Console.WriteLine("BuildIndex Start - " + DateTime.Now.ToString());
-                        var returnValue = job.Execute();
-                        if (!returnValue) Console.WriteLine("JOB ERROR - " + job.Errors.ToString());
-                        Console.WriteLine("BuildIndex End - " + DateTime.Now.ToString());
-                    }
+                    BuildIndex("/Users/alex.taranukha/Projects/ElasticSearchPOC/ECEIndex/", ds);
 
                 }
                 endTime = DateTime.Now;
@@ -174,6 +150,26 @@ namespace ElasticSearchPOC
             }
         }
 
+
+        public static bool BuildIndex(string ip, DataSource ds)
+        {
+            bool returnValue;
+            using (dtSearch.Engine.IndexJob job = new IndexJob())
+            {
+                job.IndexPath = ip;
+                job.ActionCreate = true;
+                job.ActionAdd = true;
+                job.ActionMerge = true;
+                job.DataSourceToIndex = ds;
+
+                Console.WriteLine("BuildIndex Start - " + DateTime.Now.ToString());
+                returnValue = job.Execute();
+                if (!returnValue) Console.WriteLine("JOB ERROR - " + job.Errors.ToString());
+                Console.WriteLine("BuildIndex End - " + DateTime.Now.ToString());
+            }
+            return returnValue;
+        }
+
     }
 
     public class POCDataSource : dtSearch.Engine.DataSource
@@ -220,7 +216,7 @@ namespace ElasticSearchPOC
 
         public bool GetNextDoc()
         {
-            if (++currentStream >= stream.Count) return false;
+            if ((++currentStream >= stream.Count) && (currentStream !=0)) return false;
             return true;
         }
 
