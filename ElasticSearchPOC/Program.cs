@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using SharpCifs.Smb;
 using dtSearch.Engine;
 
 
@@ -14,9 +13,9 @@ namespace ElasticSearchPOC
     {
         static async Task Main(string[] args)
         {
-            int numberOfIterations = 1;
-            int numberOfThreads = 4;
-            int numberOfDocs = 20;
+            int numberOfIterations = int.Parse(args[0]);
+            int numberOfThreads = int.Parse(args[1]);
+            int numberOfDocs = int.Parse(args[2]);
             List<Task> tf = new List<Task>();
             List<Task> td = new List<Task>();
 
@@ -38,7 +37,7 @@ namespace ElasticSearchPOC
                     {
                         for (int i = 0; i < numberOfThreads; i++)
                         {
-                            var fileName = "/Users/alex.taranukha/Projects/ElasticSearchPOC/Data/audit" + docId.ToString() + ".json";
+                            var fileName = "../../../Data/audit" + docId.ToString() + ".json";
                             tf.Add(await Task.Factory.StartNew(async () =>
                                 //await ReadFileIntoMemoryStream("smb://p-dv-dsk-zmec0/ECELoad/" + fileName)
                                 await ReadFileIntoMemoryStream(artifactId, fileName, ds)
@@ -97,7 +96,7 @@ namespace ElasticSearchPOC
         }
 
 
-        async public static Task ReadFileIntoMemoryStream(int aId, String filePath, DataSource dataSource)
+        async public static Task ReadFileIntoMemoryStream(int aId, String filePath, POCDataSource dataSource)
         {
             try
             {
@@ -108,7 +107,7 @@ namespace ElasticSearchPOC
                 {
                     MemoryStream memStream = new MemoryStream();
                     await ((Stream)fileStream).CopyToAsync(memStream);
-                    Console.WriteLine("File read - " + filePath + " : " + memStream.Length);
+                    //Console.WriteLine("File read - " + filePath + " : " + memStream.Length);
 
                     dataSource.GetNextDoc();
                     dataSource.DocStream = memStream;
@@ -123,7 +122,7 @@ namespace ElasticSearchPOC
             }
         }
 
-        async public static Task ReadECEDocIntoMemoryStream(int aId, String jsonPath, DataSource dataSource)
+        async public static Task ReadECEDocIntoMemoryStream(int aId, String jsonPath, POCDataSource dataSource)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -134,7 +133,7 @@ namespace ElasticSearchPOC
                     {
                         MemoryStream memStream = new MemoryStream();
                         await content.CopyToAsync(memStream);
-                        Console.WriteLine("Doc loaded - " +jsonPath + " : " + memStream.Length);
+                        //Console.WriteLine("Doc loaded - " +jsonPath + " : " + memStream.Length);
 
                         dataSource.GetNextDoc();
                         dataSource.DocStream = memStream;
@@ -174,7 +173,7 @@ namespace ElasticSearchPOC
 
     public class POCDataSource : dtSearch.Engine.DataSource
     {
-        private int currentStream = 0;
+        private int currentStream;
         private List<int> id;
         private List<string> name;
         private bool isFile = false;
@@ -195,6 +194,12 @@ namespace ElasticSearchPOC
             id = new List<int>(capacity);
             name = new List<string>(capacity);
             stream = new List<MemoryStream>(capacity);
+            for (int i=0; i<capacity; i++)
+            {
+                id.Insert(i, 0);
+                name.Insert(i, "");
+                stream.Insert(i, null);
+            }
         }
 
 

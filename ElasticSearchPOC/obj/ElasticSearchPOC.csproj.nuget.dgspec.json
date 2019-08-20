@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj": {}
+    "/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/ElasticSearchPOC.csproj": {}
   },
   "projects": {
-    "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj": {
+    "/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/ElasticSearchPOC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj",
+        "projectUniqueName": "/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/ElasticSearchPOC.csproj",
         "projectName": "ElasticSearchPOC",
-        "projectPath": "/Users/alex.taranukha/Projects/ElasticSearchPOC/ElasticSearchPOC.csproj",
+        "projectPath": "/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/ElasticSearchPOC.csproj",
         "packagesPath": "/Users/alex.taranukha/.nuget/packages/",
-        "outputPath": "/Users/alex.taranukha/Projects/ElasticSearchPOC/obj/",
+        "outputPath": "/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

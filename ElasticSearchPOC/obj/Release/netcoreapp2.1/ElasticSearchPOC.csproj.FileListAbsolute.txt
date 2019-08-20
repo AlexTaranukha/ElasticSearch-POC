@@ -11,3 +11,17 @@
 /Users/alex.taranukha/Projects/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.csproj.CopyComplete
 /Users/alex.taranukha/Projects/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.dll
 /Users/alex.taranukha/Projects/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.pdb
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/libdtSearchEngine.dylib
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/ElasticSearchPOC.deps.json
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/ElasticSearchPOC.runtimeconfig.json
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/ElasticSearchPOC.runtimeconfig.dev.json
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/ElasticSearchPOC.dll
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/ElasticSearchPOC.pdb
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/bin/Release/netcoreapp2.1/dtSearchNetStdApi.dll
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.csprojAssemblyReference.cache
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.csproj.CoreCompileInputs.cache
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.AssemblyInfoInputs.cache
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.AssemblyInfo.cs
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.csproj.CopyComplete
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.dll
+/Users/alex.taranukha/Git/ElasticSearch-POC/ElasticSearchPOC/obj/Release/netcoreapp2.1/ElasticSearchPOC.pdb

@@ -17,26 +17,26 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-    <Content Include="..\..\..\lib\engine\win\x64\dtSearchEngine.dll" Link="dtSearchEngine.dll">
+    <Content Include="..\..\lib\engine\win\x64\dtSearchEngine.dll" Link="dtSearchEngine.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">
-    <Content Include="..\..\..\lib\engine\linux\x64\libdtSearchEngine.so" Link="libdtSearchEngine.so">
+    <Content Include="..\..\lib\engine\linux\x64\libdtSearchEngine.so" Link="libdtSearchEngine.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">
-    <Content Include="..\..\lib\engine\macos\x64\libdtSearchEngine.dylib" Link="libdtSearchEngine.dylib">
+    <Content Include="..\lib\engine\macos\x64\libdtSearchEngine.dylib" Link="libdtSearchEngine.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="dtSearchNetStdApi">
-      <HintPath>..\..\lib\engine\NetStd\dtSearchNetStdApi.dll</HintPath>
+      <HintPath>..\lib\engine\NetStd\dtSearchNetStdApi.dll</HintPath>
     </Reference>
   </ItemGroup>
 
